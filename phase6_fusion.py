@@ -175,7 +175,7 @@ def predict(fusion_row: pd.DataFrame, model_dir: str | Path, threshold: float = 
         q_value = _finite(fusion_row.iloc[0].get(f"q_q_axis_{axis}", 0.0))
         questionnaire_probability = float(np.clip(q_value / QUESTIONNAIRE_AXIS_MAX[axis], 0, 1))
         # The clinically validated questionnaire carries the greater 60% weight.
-        final = 0.40 * model_probability + 0.60 * questionnaire_probability
+        final = 0.70 * model_probability + 0.30 * questionnaire_probability
         completed = int(_finite(fusion_row.iloc[0].get("q_questionnaire_completed", 0)))
         total = _finite(fusion_row.iloc[0].get("q_mchatr_total", 0.0))
         if completed and total == 0:

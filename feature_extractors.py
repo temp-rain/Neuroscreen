@@ -182,6 +182,6 @@ def prototype_domain_scores(features: dict, questionnaire: dict | None = None) -
     axes = {"Social Communication Risk": "sc", "Attention Regulation Risk": "ar",
             "Speech & Language Risk": "sl", "Repetitive Behaviour Risk": "rb"}
     # The clinically validated questionnaire has 60% weight; media contributes 40%.
-    score = {name: .40 * value + .60 * float(q.get(f"q_axis_{axes[name]}", 0.0) or 0.0)
+    score = {name: .70 * value + .30 * float(q.get(f"q_axis_{axes[name]}", 0.0) or 0.0)
              for name, value in media.items()}
     return {name: round(float(np.clip(value, 0, 1)), 3) for name, value in score.items()}
