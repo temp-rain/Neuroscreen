@@ -12,8 +12,8 @@ from feature_extractors import aggregate_child, audio_features, load_models, pro
 
 ROOT = Path(__file__).parent
 st.set_page_config(page_title="NeuroScreen", page_icon="🧠", layout="wide")
-st.title("NeuroScreen - Phase 1-5 Feature Dashboard")
-st.warning("College-project prototype only. These outputs are not a diagnosis and must not guide clinical decisions.")
+st.markdown("<h1 style='text-align: center;'>NeuroScreen</h1>", unsafe_allow_html=True)
+st.info("DSM / ICF Development Domains based Risk Scoring")
 
 # Phase 5 - M-CHAT-R item wording and scoring, reproduced from the supplied
 # Phase5_Questionnaire_Scoring notebook.  YES is at-risk only for Q2, Q5, Q12.
@@ -98,7 +98,7 @@ else:
                            "questionnaire_completed": 0}
                           for child in sorted(set(assignments.values()))]
 
-if st.button("Extract Phase 1-5 features and create dashboard", type="primary"):
+if st.button("Extract", type="primary"):
     try:
         models = get_models(); file_rows = defaultdict(list)
         progress = st.progress(0, text="Preparing files")
@@ -130,15 +130,13 @@ if st.button("Extract Phase 1-5 features and create dashboard", type="primary"):
 if "fusion_features" in st.session_state:
     final = st.session_state["fusion_features"]
     risks = st.session_state["prototype_risks"]
-    st.subheader("Final prototype indicators")
-    st.caption("The questionnaire has a 60% contribution. A completed questionnaire with no at-risk answers sets all prototype risks to zero. These remain non-XGBoost demo composites.")
+    st.subheader("Model evaluated Results")
     risk_columns = [column for column in risks.columns if column != "child_id" and not column.endswith(" Level")]
     for _, record in risks.iterrows():
         st.markdown(f"**{record['child_id']}**")
         st.dataframe(pd.DataFrame({column: [record[column], record[f'{column} Level']] for column in risk_columns},
                                   index=["Risk score", "Risk level"]), use_container_width=True)
     download_columns = st.columns(2)
-    st.caption("Use the fusion-features CSV for XGBoost. The prototype-indicator CSV is a dashboard output, not XGBoost training data.")
     download_columns[0].download_button("Download Phase 1-5 fusion features CSV", final.to_csv(index=False).encode(), "fusion_features.csv", "text/csv")
     download_columns[1].download_button("Download prototype indicator CSV", risks.to_csv(index=False).encode(), "prototype_risk_indicators.csv", "text/csv")
     with st.expander("Show extracted feature table"):
