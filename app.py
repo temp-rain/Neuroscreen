@@ -12,6 +12,53 @@ from feature_extractors import aggregate_child, audio_features, load_models, pro
 
 ROOT = Path(__file__).parent
 st.set_page_config(page_title="NeuroScreen", page_icon="🧠", layout="wide")
+st.markdown("""
+<style>
+    .stApp {
+        background:
+            radial-gradient(circle at 8% 5%, rgba(93, 170, 222, 0.35), transparent 24rem),
+            radial-gradient(circle at 92% 18%, rgba(155, 122, 210, 0.26), transparent 26rem),
+            linear-gradient(135deg, #f5f9ff 0%, #eef5ff 45%, #f8f3ff 100%);
+        color: #16243d;
+    }
+    [data-testid="stHeader"] { background: rgba(0, 0, 0, 0); }
+    .block-container { max-width: 1180px; padding-top: 2.5rem; padding-bottom: 3rem; }
+    h1 {
+        color: #152c55;
+        font-weight: 750;
+        letter-spacing: -0.045em;
+        text-shadow: 0 2px 12px rgba(62, 103, 161, 0.13);
+    }
+    h2, h3 { color: #1b3d6d; }
+    [data-testid="stAlert"] {
+        border: 1px solid rgba(74, 117, 176, 0.20);
+        border-radius: 14px;
+        box-shadow: 0 8px 24px rgba(48, 83, 132, 0.08);
+    }
+    [data-testid="stFileUploader"], [data-testid="stExpander"], [data-testid="stDataFrame"] {
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(82, 119, 169, 0.18);
+        border-radius: 14px;
+        box-shadow: 0 7px 22px rgba(42, 79, 130, 0.07);
+    }
+    [data-testid="stExpander"] { padding: 0.15rem 0.55rem; }
+    .stButton > button, .stDownloadButton > button {
+        border-radius: 10px;
+        border: 0;
+        font-weight: 600;
+        box-shadow: 0 6px 14px rgba(31, 75, 130, 0.18);
+    }
+    .stButton > button[kind="primary"] {
+        background: linear-gradient(100deg, #2069ad, #6249a9);
+    }
+    .stButton > button[kind="primary"]:hover { background: linear-gradient(100deg, #185b9c, #513894); }
+    .stDownloadButton > button {
+        background: rgba(255, 255, 255, 0.86);
+        color: #25528a;
+        border: 1px solid rgba(61, 104, 160, 0.3);
+    }
+</style>
+""", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>NeuroScreen</h1>", unsafe_allow_html=True)
 st.info("DSM / ICF Development Domains based Risk Scoring")
 
