@@ -195,8 +195,8 @@ def render_hero() -> None:
     <p>Early developmental risk indicators from short video, audio and a parent questionnaire, scored against DSM and ICF development domains.</p>
   </div>
   <div class="ns-domains">
-    <span>Social communication</span><span>Attention and arousal</span>
-    <span>Speech and language</span><span>Restricted behaviours</span>
+    <span>Social communication</span><span>Attention Regulation</span>
+    <span>Speech and language</span><span>Repetative Behaviours</span>
   </div>
 </div>
 """, unsafe_allow_html=True)
