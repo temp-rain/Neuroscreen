@@ -119,6 +119,31 @@ p, label, li, span { line-height: 1.55; }
 
 .stProgress > div > div > div > div { background: var(--teal); }
 
+/* ---------- Keep text readable if Streamlit's dark theme is selected ---------- */
+:root, .stApp { color-scheme: light; }
+.stApp, .stApp p, .stApp li, .stApp label, .stApp span, .stApp small,
+.stApp [data-testid="stMarkdownContainer"], .stApp [data-testid="stCaptionContainer"],
+.stApp [data-testid="stWidgetLabel"], .stApp [data-testid="stWidgetLabel"] p,
+.stApp [data-testid="stRadio"] label, .stApp [data-testid="stCheckbox"] label,
+.stApp [data-testid="stExpander"] summary, .stApp [data-testid="stExpander"] summary p,
+.stApp [data-testid="stFileUploader"] small, .stApp [data-testid="stFileUploader"] span {
+    color: var(--ink);
+}
+.stApp [data-testid="stCaptionContainer"], .stApp [data-testid="stFileUploader"] small { color: var(--ink-soft); }
+.stApp h1, .stApp h2, .stApp h3 { color: var(--ink); }
+.ns-hero, .ns-hero h1 { color: #FFFFFF; }
+.ns-hero p { color: #B9CBD6; }
+.ns-domains span { color: #DCE9EE; }
+.ns-domains .lead { color: #FFFFFF; }
+.stApp .stButton > button[kind="primary"], .stApp .stButton > button[kind="primary"] p { color: #FFFFFF; }
+.stApp .stDownloadButton > button, .stApp .stDownloadButton > button p { color: var(--teal-deep); }
+.stApp .stDownloadButton > button:hover, .stApp .stDownloadButton > button:hover p { color: #FFFFFF; }
+.stApp input, .stApp textarea { color: var(--ink); background: var(--paper); }
+[data-testid="stSidebar"] { background: var(--paper); border-right: 1px solid var(--line); }
+[data-testid="stSidebar"] * { color: var(--ink); }
+.ns-pill.low { color: var(--low); } .ns-pill.mid { color: var(--mid); } .ns-pill.high { color: var(--high); }
+.ns-note, .ns-legend { color: var(--ink-soft); }
+
 /* ---------- Results ---------- */
 .ns-child {
     display: flex; justify-content: space-between; align-items: center; gap: 1rem;
