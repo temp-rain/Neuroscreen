@@ -68,11 +68,10 @@ p, label, li, span { line-height: 1.55; }
 .ns-hero p { margin: 0; max-width: 34rem; color: #B9CBD6; font-size: 1.04rem; }
 .ns-domains { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: flex-end; }
 .ns-domains span {
-    border: 1px solid rgba(255,255,255,.22);
+    background: var(--teal); border: 1px solid var(--teal);
     border-radius: 999px; padding: .38rem .85rem;
-    font-size: .88rem; color: #DCE9EE;
+    font-size: .88rem; color: #FFFFFF;
 }
-.ns-domains .lead { background: var(--teal); border-color: var(--teal); color: #fff; }
 
 /* ---------- Workflow strip ---------- */
 .ns-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7rem; margin-bottom: 1.4rem; }
@@ -131,10 +130,9 @@ p, label, li, span { line-height: 1.55; }
 }
 .stApp [data-testid="stCaptionContainer"], .stApp [data-testid="stFileUploader"] small { color: var(--ink-soft); }
 .stApp h1, .stApp h2, .stApp h3 { color: var(--ink); }
-.ns-hero, .ns-hero h1 { color: #FFFFFF; }
-.ns-hero p { color: #B9CBD6; }
-.ns-domains span { color: #DCE9EE; }
-.ns-domains .lead { color: #FFFFFF; }
+.stApp .ns-hero h1, .stApp .ns-hero h1 * { color: #FFFFFF !important; }
+.stApp .ns-hero p { color: #B9CBD6 !important; }
+.stApp .ns-domains span { color: #FFFFFF !important; background: var(--teal); }
 .stApp .stButton > button[kind="primary"], .stApp .stButton > button[kind="primary"] p { color: #FFFFFF; }
 .stApp .stDownloadButton > button, .stApp .stDownloadButton > button p { color: var(--teal-deep); }
 .stApp .stDownloadButton > button:hover, .stApp .stDownloadButton > button:hover p { color: #FFFFFF; }
@@ -197,7 +195,7 @@ def render_hero() -> None:
     <p>Early developmental risk indicators from short video, audio and a parent questionnaire, scored against DSM and ICF development domains.</p>
   </div>
   <div class="ns-domains">
-    <span class="lead">Social communication</span><span>Attention and arousal</span>
+    <span>Social communication</span><span>Attention and arousal</span>
     <span>Speech and language</span><span>Restricted behaviours</span>
   </div>
 </div>
